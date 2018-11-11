@@ -1,0 +1,54 @@
+<div class="container">
+    <main>
+        <agm-map (mapClick)="mapClicked($event)" [latitude]="lat" [longitude]="lng">
+            <agm-marker *ngFor="let marker of this.markers; let i = index" [latitude]="marker.lat" [longitude]="marker.lng" [label]="marker.label" [markerDraggable]="marker.draggable" (markerClick)="clickedMarker(marker.id, marker.lat, marker.lng,i, marker.nome, marker.numero)">
+            </agm-marker>
+        </agm-map>
+    </main>
+    <form [hidden]="!showForm" class="animated slideInRight">
+        <header>
+            <h1>Ponto de Saída</h1>
+        </header>
+        <div class="campo_nome">
+            <h3>Nome:</h3>
+            <input type="text" [(ngModel)]="localizacao.nome" name="nome">
+        </div>
+        <div class="campo_numero">
+            <h3>Numero:</h3>
+            <input type="text" [(ngModel)]="localizacao.numero" name="numero">
+        </div>
+
+        <div class="campo_coords">
+            <h3>Coordenada X</h3>
+            <input type="text" [(ngModel)]="localizacao.coordX" name="coordX">
+
+            <h3>Coordenada Y</h3>
+            <input type="text" [(ngModel)]="localizacao.coordY" name="coordY">
+        </div>
+
+        <div class="checkboxes">
+            <div class="campo_checkbox-stat">
+                <h3>Status</h3>
+                <label class="switch-seguranca">
+                        <input type="checkbox" [(ngModel)]="isCheckedStat" (change)="checaValorStatus(isCheckedStat? 'true': 'false')" name="checkbox-status">
+                        <span class="slider round"></span>
+                      </label>
+            </div>
+            <div class="campo_checkbox-seg">
+
+                <h3>Seguranca</h3>
+                <label class="switch-seguranca">
+                            <input type="checkbox" [(ngModel)]="isCheckedSeg" (change)="checaValorSeguranca(isCheckedSeg? 'true': 'false')" name="checkbox-seguranca">
+                            <span class="slider round"></span>
+                          </label>
+            </div>
+        </div>
+        <div class="campo_buttons">
+            <img class ="img-save"src="../../../assets/save.png" (click)="saveLocation()">
+            <img class="img-del" src="../../../assets/delete.png" (click)="excluirLocation()">
+            <img class="img-cancel" src="../../../assets/cancel.png" (click)="closeForm()">     
+        </div>
+    </form>
+</div>
+
+<ngx-toasta></ngx-toasta>

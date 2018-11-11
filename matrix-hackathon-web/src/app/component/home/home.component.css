@@ -1,0 +1,56 @@
+/* Flexboxes properties */
+container{
+    display: flex;
+    flex-direction: column;
+    background-image: url('../../../assets/backgroundHome.gif');
+    width: 100%;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: black;
+    padding-left: 20px;
+    position: relative;
+}
+
+app-modal-form{
+    width: 100%;
+    animation-duration: 2s;
+    animation-delay: 1s;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-image: url('../../../assets/backgroundHome.gif');
+    background-size: cover;    
+    width: 100%;
+    height: 670px;
+}
+
+
+.logo{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30%;
+    margin-right: 22%;
+  
+    animation-duration: 3s;
+    animation-delay: 1s;
+}
+
+h1{
+    color: #FFFFFF;
+    font-family: 'Matrix';
+    -webkit-text-stroke: 1px #1B8F16;
+}
